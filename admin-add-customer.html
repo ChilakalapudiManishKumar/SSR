@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Customer Insurance | SSR ASSOCIATIONS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container"
+       style="display:flex;justify-content:space-between;align-items:center;">
+
+    <!-- LEFT : Back -->
+    <button class="btn-primary" onclick="goBackToDashboard()">← Back</button>
+
+    <!-- CENTER : Title -->
+    <div class="admin-brand">
+      <img src="logo.png" alt="SSR Logo" class="admin-logo">
+      <span class="admin-title">SSR ASSOCIATIONS – Admin</span>
+    </div>
+
+
+    <!-- RIGHT : Empty -->
+    <div></div>
+
+  </div>
+</header>
+
+<!-- MAIN SECTION -->
+<section class="section light">
+  <div class="admin-container">
+
+    <div class="admin-card">
+      <h2>Add Customer Insurance</h2>
+
+      <!-- CUSTOMER FORM -->
+      <form id="customerForm" class="customer-form-grid">
+
+        <!-- ROW 1 -->
+        <input type="text" id="custName" placeholder="Customer Name" required>
+        <input type="tel" id="custMobile" placeholder="Mobile Number" required>
+        <input type="text" id="vehicleNo" placeholder="Vehicle Number" required>
+
+        <!-- ROW 2 -->
+        <input type="text" id="vehicleModel" placeholder="Vehicle Model" required>
+        <input type="number" id="vehicleAge" placeholder="Vehicle Age" required>
+        <input type="number" id="idv" placeholder="IDV Value" required>
+
+        <!-- ROW 3 -->
+
+          <div class="date-row">
+            <div class="date-field">
+              <label>Valid From</label>
+              <input type="date" id="startDate">
+            </div>
+
+            <div class="date-field">
+              <label>Valid To</label>
+              <input type="date" id="endDate">
+            </div>
+          </div>
+
+          <!-- ROW 4 : Button -->
+          <button type="submit" class="btn-primary save-customer-btn">
+            Save Customer
+          </button>
+          </form>
+      </div> <!-- customer-form-grid -->
+
+    </div> <!-- admin-card -->
+
+  </div> <!-- admin-container -->
+</section>
+
+<script>
+  function goBackToDashboard() {
+    window.location.href = "admin-dashboard.html";
+  }
+</script>
+
+<script>
+    function saveCustomer() {
+        const customer = {
+            name: document.getElementById("custName").value.trim(),
+            mobile: document.getElementById("custMobile").value.trim(),
+            vehicleNo: document.getElementById("vehicleNo").value.trim(),
+            model: document.getElementById("vehicleModel").value.trim(),
+            age: document.getElementById("vehicleAge").value.trim(),
+            idv: document.getElementById("idv").value.trim(),
+            startDate: document.getElementById("startDate").value,
+            endDate: document.getElementById("endDate").value
+        };
+
+
+        for (let key in customer) {
+            if (!customer[key]) {
+                alert("Please fill all fields");
+                return;
+            }
+        }
+
+
+        const customers =
+            JSON.parse(localStorage.getItem("customers")) || [];
+
+
+        customers.push(customer);
+        localStorage.setItem("customers", JSON.stringify(customers));
+
+        alert("Customer saved successfully ✅");
+
+        document.getElementById("customerForm").reset();
+    }
+</script>
+
+<script>
+  if (localStorage.getItem("adminLoggedIn") !== "true") {
+    window.location.href = "index.html";
+  }
+</script>
+<script src="admin.js"></script>
+
+</body>
+</html>

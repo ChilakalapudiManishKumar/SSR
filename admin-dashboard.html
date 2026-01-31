@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard | SSR ASSOCIATIONS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+<header class="header">
+  <div class="container"
+       style="display:flex;justify-content:space-between;align-items:center;">
+
+    <!-- LEFT : Empty (no back button here) -->
+    <div></div>
+
+    <!-- CENTER : Title -->
+    <div class="admin-brand">
+      <img src="logo.png" alt="SSR Logo" class="admin-logo">
+      <span class="admin-title">SSR ASSOCIATIONS – Admin</span>
+    </div>
+
+
+    <!-- RIGHT : Logout -->
+    <button class="btn-primary" onclick="logoutAdmin()">Logout</button>
+
+  </div>
+</header>
+
+<section class="section">
+  <div class="admin-dashboard">
+
+    <!-- 1. Manage Vehicle Rates -->
+    <div class="dashboard-card">
+        <h3>Manage Vehicle Rates</h3>
+        <p>Update monthly insurance pricing</p>
+        <a href="admin-rates.html" class="btn-primary">Open</a>
+    </div>
+
+    <!-- 2. Add Customer Insurance -->
+    <div class="dashboard-card">
+        <h3>Add Customer Insurance</h3>
+        <p>Register new insurance details</p>
+        <a href="admin-add-customer.html" class="btn-primary">Open</a>
+    </div>
+
+    <!-- 3. Saved Customers -->
+    <div class="dashboard-card">
+        <h3>Saved Customers</h3>
+        <p>View & search customer records</p>
+        <a href="admin-saved-customers.html" class="btn-primary">Open</a>
+    </div>
+
+    <!-- 4. Change Admin Credentials -->
+    <div class="dashboard-card">
+        <h3>Change Admin Credentials</h3>
+        <p>Update login username & password</p>
+        <a href="admin-change-credentials.html" class="btn-primary">Open</a>
+    </div>  
+
+</div>
+</section>
+
+<footer class="admin-footer-text">
+  © 2026 SSR Associations. All Rights Reserved.
+</footer>
+
+<script>
+  function logoutAdmin() {
+    localStorage.removeItem("adminLoggedIn");
+    window.location.href = "index.html";
+  }
+</script>
+
+<script>
+  if (localStorage.getItem("adminLoggedIn") !== "true") {
+    window.location.href = "index.html";
+  }
+</script>
+<script src="admin.js"></script>
+
+</body>
+</html>

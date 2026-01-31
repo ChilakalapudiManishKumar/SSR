@@ -1,0 +1,842 @@
+/* ================= GLOBAL RESET ================= */
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f4f6f8;
+  color: #222;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* ================= HEADER & NAV ================= */
+.header {
+  background: linear-gradient(90deg, #0a2a66, #08306b);
+  color: #fff;
+  padding: 22px 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.header .container,
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-logo {
+  height: 42px;
+}
+
+.logo-text {
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.nav-links {
+  display: flex;
+  gap: 26px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Buttons (Header) */
+.admin-btn,
+.back-btn,
+.logout-btn {
+  background: #1b6ef3;
+  color: #fff;
+  border: none;
+  padding: 6px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  width: auto;
+}
+
+.admin-btn:hover,
+.back-btn:hover,
+.logout-btn:hover {
+  background: #155bd6;
+}
+
+/* ================= HERO ================= */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: url("sun.jpg") center/cover no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 30, 70, 0.65);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 16px;
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 600px;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+.hero-btn {
+  background: #fff;
+  color: #0a2a66;
+  border: none;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.hero-btn:hover {
+  background: #f0f0f0;
+}
+
+/* ================= SECTIONS ================= */
+.section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.section.light {
+  background: #fff;
+}
+
+.section-title {
+  color: #0a2a66;
+  margin-bottom: 40px;
+}
+
+/* ================= SERVICES ================= */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background: #0a2a66;
+  color: #fff;
+  width: 220px;
+  padding: 25px;
+  margin: 10px;
+  border-radius: 8px;
+}
+
+/* ================= CLAIMS ================= */
+.claims {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding-left: 0;
+  list-style-position: inside;
+}
+
+.claims li {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+/* ================= QUOTE ================= */
+.quote-container {
+  display: flex;
+  gap: 30px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.quote-left,
+.quote-right {
+  flex: 1;
+  background: #fff;
+  padding: 35px;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.quote-left h3,
+.quote-right h3 {
+  color: #0a2a66;
+  margin-bottom: 25px;
+}
+
+.quote-left form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.quote-left input,
+.quote-left select,
+.quote-right select {
+  padding: 14px;
+  border: 1px solid #999;
+  border-radius: 4px;
+}
+
+.quote-left button {
+  padding: 14px;
+  background: #0a2a66;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+.cost-box {
+  margin-top: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0a2a66;
+}
+
+/* ================= ADMIN DASHBOARD ================= */
+.admin-container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* ================= ADMIN DASHBOARD SPACING FIX ================= */
+.admin-dashboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+
+  margin-top: 80px;     /* 👈 pushes cards down */
+  margin-bottom: 60px;  /* space before footer */
+}
+
+.dashboard-card {
+  background: #fff;
+  padding: 30px 25px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dashboard-card h3 {
+  color: #0a2a66;
+}
+
+.dashboard-card p {
+  color: #555;
+  font-size: 14px;
+}
+
+.dashboard-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.dashboard-btn.active {
+  background: #1b6ef3;
+  color: #fff;
+}
+
+.dashboard-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.12);
+}
+
+/* ================= ADMIN FORMS ================= */
+.admin-card {
+  background: #fff;
+  padding: 25px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.admin-form {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 15px;
+}
+
+.admin-form input,
+.admin-form select {
+  padding: 12px;
+  border: 1px solid #999;
+  border-radius: 4px;
+}
+
+.admin-form button {
+  padding: 12px 20px;
+  background: #0a2a66;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+/* ================= ADD CUSTOMER – DATE ROW TRUE CENTER ================= */
+
+/* Small, professional labels */
+.date-field label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #666;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* Date input polish */
+.date-field input {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* ================= ADD CUSTOMER – DATE ROW CENTER FIX ================= */
+
+/* Center the date fields in the 3rd row */
+.customer-form-grid .date-field {
+  grid-column: span 1;
+  justify-self: center;     /* 👈 centers horizontally */
+  width: 100%;
+  max-width: 260px;         /* 👈 keeps it compact */
+}
+
+/* Make labels small & professional */
+.customer-form-grid .date-field label {
+  font-size: 12px;          /* 👈 smaller text */
+  font-weight: 500;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+/* Date input styling */
+.customer-form-grid .date-field input {
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* ================= ADD CUSTOMER ================= */
+.customer-form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 25px;
+}
+
+.customer-form-grid input {
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.date-field {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================= SAVE CUSTOMER BUTTON (ADMIN) ================= */
+
+.save-customer-btn {
+  display: block;
+  margin: 30px auto 60px;      /* center + spacing */
+  padding: 12px 28px;
+
+  background: linear-gradient(90deg, #1b6ef3, #155bd6);
+  color: #ffffff;
+
+  border: none;
+  border-radius: 8px;
+
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+
+  min-width: 180px;
+  
+  grid-column: 1 / -1;              /* full row */
+  justify-self: center;
+  margin-top: 30px;
+}
+
+.save-customer-btn:hover {
+  opacity: 0.95;
+}
+
+/* ================= TABLES ================= */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.delete-btn {
+  background: #e63946;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+}
+
+/* ================= FOOTER ================= */
+.footer,
+.admin-footer-text {
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+  margin: 40px 0 20px;
+}
+
+.admin-footer-text {
+  margin-top: 100px;   /* 👈 ensures it stays at end */
+  text-align: center;
+}
+
+/* ================= WHATSAPP ================= */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25d366;
+  color: white;
+  font-size: 22px;
+  padding: 15px;
+  border-radius: 50%;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .admin-dashboard {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .quote-container {
+    flex-direction: column;
+  }
+
+  .admin-dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .customer-form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .customer-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-bar {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* ================= ADMIN LOGIN MODAL ================= */
+
+.admin-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 20, 45, 0.7);
+  z-index: 9999;
+}
+
+.admin-modal.active {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-box {
+  position: relative;
+  background: #ffffff;
+  width: 100%;
+  max-width: 420px;
+  padding: 35px 30px;
+  border-radius: 16px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+  text-align: center;
+  animation: popIn 0.25s ease-out;
+}
+
+/* ===== ADMIN LOGIN – FINAL OVERRIDE ===== */
+.admin-box form {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-box input {
+  display: block;
+  width: 100% !important;
+  margin-bottom: 16px !important;
+}
+
+.admin-box button {
+  width: 100% !important;
+  margin-top: 10px;
+}
+
+/* ================= ADMIN LOGIN FINAL FIX ================= */
+
+.admin-box {
+  width: 100% !important;
+  max-width: 420px !important;
+  padding: 35px 30px !important;
+  border-radius: 16px !important;
+  background: #ffffff !important;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.35) !important;
+}
+
+.admin-box h3 {
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  color: #0a2a66 !important;
+  margin-bottom: 25px !important;
+}
+
+.admin-box input {
+  width: 100% !important;
+  padding: 14px 16px !important;
+  margin-bottom: 16px !important;
+  border-radius: 10px !important;
+  border: 1px solid #ccc !important;
+  font-size: 15px !important;
+}
+
+.admin-box button {
+  width: 100% !important;
+  padding: 14px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  border-radius: 10px !important;
+  background: linear-gradient(90deg, #1b6ef3, #155bd6) !important;
+  color: white !important;
+  border: none !important;
+}
+
+.close-btn {
+  position: absolute !important;
+  right: 16px !important;
+  top: 14px !important;
+  font-size: 22px !important;
+  cursor: pointer !important;
+}
+
+/* ===== DATE ROW CENTERING ===== */
+.date-row {
+  grid-column: 1 / -1;              /* take full width */
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 10px;
+}
+
+.date-field {
+  width: 220px;
+  text-align: center;
+}
+
+.date-field label {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+/* ===== ADMIN HEADER PERFECT CENTER ===== */
+.admin-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.header-left {
+  text-align: left;
+}
+
+.header-center {
+  text-align: center;
+}
+
+.header-right {
+  text-align: right;
+}
+
+.header-center h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* ===== ABSOLUTE FORCE FIX FOR ADMIN RATE FORM ===== */
+select#vehicleType,
+input#monthlyRate,
+input#effectiveDate {
+  height: 48px !important;
+  padding: 12px 14px !important;
+  font-size: 14px !important;
+  border: 1px solid #ccc !important;
+  border-radius: 8px !important;
+  box-sizing: border-box !important;
+}
+
+/* kill native select UI */
+select#vehicleType {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+
+  background-color: #fff !important;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23666' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 14px center !important;
+  background-size: 18px !important;
+  padding-right: 44px !important;
+}
+
+/* ===== FORCE SAME SIZE FOR SELECT + INPUT (ADMIN RATES) ===== */
+.customer-form-grid select,
+.customer-form-grid input {
+  height: 48px;
+  padding: 12px 14px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.customer-form-grid select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23666' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 18px;
+  padding-right: 44px;
+}
+
+section {
+  scroll-margin-top: 120px;
+}
+
+#adminModal.active {
+  display: flex !important;
+}
+
+/* =====================================================
+   PROFESSIONAL ADMIN HEADER – MOBILE FIX
+===================================================== */
+@media (max-width: 600px) {
+
+  /* ===== HOME PAGE – ADMIN BUTTON (MOBILE) ===== */
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+  }
+
+
+  /* Header spacing */
+  .header {
+    padding: 14px 0;
+  }
+
+  /* Grid becomes stacked */
+  .admin-header {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    row-gap: 10px;
+  }
+
+  /* Back button – left top */
+  .header-left {
+    grid-column: 1 / 2;
+    grid-row: 1;
+    text-align: left;
+  }
+
+  /* Logout button – right top */
+  .header-right {
+    grid-column: 2 / 3;
+    grid-row: 1;
+    text-align: right;
+  }
+
+  /* Center title – full width below */
+  .header-center {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    text-align: center;
+  }
+
+  /* Admin title – smaller & classy */
+  .header-center h2,
+  .logo {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+
+  /* Remove heavy shadows on mobile */
+  .header {
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+}
+
+/* =========================================
+   UNIVERSAL PRIMARY BUTTON (FINAL REFINED)
+========================================= */
+.btn-primary {
+  background: linear-gradient(135deg, #1b6ef3, #155bd6);
+  color: #ffffff;
+
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 10px 18px;
+
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+
+  border-radius: 20px;          /* 👈 mobile pill look */
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  box-shadow: 0 4px 10px rgba(27,110,243,0.35);
+  transition: all 0.25s ease;
+}
+
+/* Hover – subtle & professional */
+.btn-primary:hover {
+  background: linear-gradient(135deg, #155bd6, #0f4ccf);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(15,76,207,0.45);
+}
+
+/* Active click feedback */
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+/* Keyboard focus (accessibility) */
+.btn-primary:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,0.7),
+    0 0 0 4px rgba(27,110,243,0.6);
+}
+
+@media (max-width: 600px) {
+  .btn-primary {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+}
+
+/* ===== FIX: SAVE RATE BUTTON CENTERING ===== */
+.save-rate-btn {
+  grid-column: 1 / -1;      /* take full row */
+  justify-self: center;     /* center horizontally */
+  margin-top: 20px;
+}
+
+.save-customer-btn {
+  grid-column: 1 / -1;
+  justify-self: center;
+  margin-top: 30px;
+}
+
+.dashboard-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dashboard-card .btn-primary {
+  margin-top: 20px;
+}
+
+/* ===== ADMIN BRAND (LOGO + TITLE) ===== */
+.admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-logo {
+  height: 36px;
+}
+
+.admin-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+}

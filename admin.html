@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel | SSR ASSOCIATIONS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+  <div class="container admin-header">
+
+    <!-- LEFT -->
+    <div class="header-left">
+      <button class="back-btn" onclick="window.location.href='admin-dashboard.html'">
+        ← Back
+      </button>
+    </div>
+
+    <!-- CENTER -->
+    <div class="header-center">
+      <h2>SSR ASSOCIATIONS – Admin</h2>
+    </div>
+
+    <!-- RIGHT (EMPTY FOR ALIGNMENT) -->
+    <div class="header-right"></div>
+
+  </div>
+</header>
+
+<!-- ================= MAIN CONTENT ================= -->
+<section class="section light">
+  <div class="admin-container">
+
+    <!-- ===== ADD VEHICLE INSURANCE RATE ===== -->
+    <div class="admin-card">
+      <h3>Add Vehicle Insurance Rate</h3>
+
+      <div class="customer-form-grid">
+
+        <!-- Vehicle Type -->
+        <select id="vehicleType">
+          <option value="">Select Vehicle Type</option>
+
+          <optgroup label="Two-Wheeler">
+            <option>Bike / Motorcycle</option>
+            <option>Scooter</option>
+          </optgroup>
+
+          <optgroup label="Private Vehicle">
+            <option>Private Car (Hatchback)</option>
+            <option>Private Car (Sedan)</option>
+            <option>Private Car (SUV / MUV)</option>
+          </optgroup>
+
+          <optgroup label="Commercial Passenger Vehicle">
+            <option>Auto Rickshaw (Passenger)</option>
+            <option>Taxi / Cab (Car)</option>
+            <option>Passenger Van (Commercial)</option>
+            <option>Mini Bus</option>
+            <option>Bus</option>
+          </optgroup>
+
+          <optgroup label="Commercial Goods Vehicle">
+            <option>Goods Auto (3-Wheeler)</option>
+            <option>Pickup / Mini Truck</option>
+            <option>Light Goods Vehicle (LGV)</option>
+            <option>Medium Goods Vehicle (MGV)</option>
+            <option>Heavy Goods Vehicle (HGV / Truck)</option>
+          </optgroup>
+
+          <optgroup label="Special Vehicles">
+            <option>Tractor</option>
+            <option>Tractor (with Trailer)</option>
+            <option>Trailer (separate)</option>
+            <option>Construction Equipment</option>
+            <option>Crane</option>
+            <option>Forklift</option>
+          </optgroup>
+
+          <optgroup label="Electric Vehicle (EV)">
+            <option>Electric Two-Wheeler</option>
+            <option>Electric Private Car</option>
+            <option>Electric Commercial Passenger</option>
+            <option>Electric Commercial Goods</option>
+          </optgroup>
+        </select>
+
+        <!-- Monthly Rate -->
+        <input
+          type="number"
+          id="monthlyRate"
+          placeholder="Monthly Rate (₹)"
+        >
+
+        <!-- Effective Month -->
+        <input
+          type="month"
+          id="effectiveDate"
+        >
+
+      </div>
+
+      <!-- SAVE BUTTON -->
+      <button class="save-customer-btn" onclick="saveRate()">
+        Save Rate
+      </button>
+    </div>
+
+    <!-- ===== EXISTING RATES ===== -->
+    <div class="admin-card">
+      <h3>Existing Rates</h3>
+
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Vehicle Type</th>
+            <th>Monthly Rate</th>
+            <th>Effective From</th>
+            <th>Action</th>
+          </tr>
+          <tbody id="ratesTable"></tbody>
+        </thead>
+
+        <!-- IMPORTANT: admin.js inserts rows here -->
+        <tbody id="ratesTable">
+          <!-- rows added by JS -->
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="admin-footer-text">
+  © 2026 SSR ASSOCIATIONS. All Rights Reserved.
+</footer>
+
+<!-- ================= AUTH CHECK ================= -->
+<script>
+  if (localStorage.getItem("adminLoggedIn") !== "true") {
+    window.location.href = "index.html";
+  }
+</script>
+
+<!-- ================= ADMIN SCRIPT ================= -->
+<script src="admin.js"></script>
+
+</body>
+</html>

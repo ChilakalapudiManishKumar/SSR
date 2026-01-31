@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Manage Vehicle Insurance Rates</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ===== ADMIN HEADER ===== -->
+<div class="header">
+  <div class="container admin-header">
+
+    <div class="header-left">
+      <button class="btn-primary" onclick="window.location.href='admin-dashboard.html'">
+        ← Back
+      </button>
+    </div>
+
+    <div class="admin-brand">
+      <img src="logo.png" class="admin-logo">
+      <span class="admin-title">SSR ASSOCIATIONS – Admin</span>
+    </div>
+
+
+    <div class="header-right">
+      <!-- intentionally empty to balance layout -->
+    </div>
+
+  </div>
+</div>
+
+<!-- CONTENT -->
+<section class="section light">
+  <div class="admin-container">
+
+    <!-- ADD RATE -->
+    <div class="admin-card">
+      <h3>Add Vehicle Insurance Rate</h3>
+      <p style="color:#666;margin-bottom:25px;">
+        Select vehicle type, monthly rate and effective date
+      </p>
+
+      <!-- FORM GRID -->
+      <div class="customer-form-grid">
+
+        <!-- Vehicle Type -->
+        <select id="vehicleType">
+          <option value="">Select Vehicle Type</option>
+
+          <optgroup label="Two-Wheeler">
+          <option>Bike / Motorcycle</option>
+          <option>Scooter</option>
+        </optgroup>
+
+        <optgroup label="Private Vehicle">
+          <option>Private Car (Hatchback)</option>
+          <option>Private Car (Sedan)</option>
+          <option>Private Car (SUV / MUV)</option>
+        </optgroup>
+
+        <optgroup label="Commercial Passenger Vehicle">
+          <option>Auto Rickshaw (Passenger)</option>
+          <option>Taxi / Cab (Car)</option>
+          <option>Passenger Van (Commercial)</option>
+          <option>Mini Bus</option>
+          <option>Bus</option>
+        </optgroup>
+
+        <optgroup label="Commercial Goods Vehicle">
+          <option>Goods Auto (3-Wheeler)</option>
+          <option>Pickup / Mini Truck</option>
+          <option>Light Goods Vehicle (LGV)</option>
+          <option>Medium Goods Vehicle (MGV)</option>
+          <option>Heavy Goods Vehicle (HGV / Truck)</option>
+        </optgroup>
+
+        <optgroup label="Special Vehicles">
+          <option>Tractor</option>
+          <option>Tractor (with Trailer)</option>
+          <option>Trailer (separate)</option>
+          <option>Construction Equipment (JCB / Excavator / Loader)</option>
+          <option>Crane</option>
+          <option>Forklift</option>
+        </optgroup>
+
+        <optgroup label="Electric Vehicle (EV)">
+          <option>Electric Two-Wheeler</option>
+          <option>Electric Private Car</option>
+          <option>Electric Commercial Passenger</option>
+          <option>Electric Commercial Goods</option>
+        </optgroup>
+
+        <optgroup label="Others">
+          <option>Ambulance</option>
+          <option>Fire Engine</option>
+          <option>School Bus</option>
+          <option>Rental / Self-Drive Car</option>
+        </optgroup>
+        </select>
+
+        <!-- Rate -->
+        <input type="number" id="monthlyRate" placeholder="Monthly Rate (₹)" />
+
+        <!-- Effective Date -->
+        <input type="month" id="effectiveDate" />
+
+      </div>
+
+      <!-- SAVE BUTTON -->
+      <button class="btn-primary save-rate-btn" onclick="saveRate()">
+        Save Rate
+      </button>
+    </div>
+
+    <!-- EXISTING RATES -->
+    <div class="admin-card" style="margin-top:40px;">
+      <h3>Existing Rates</h3>
+
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Vehicle Type</th>
+            <th>Monthly Rate</th>
+            <th>Effective From</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody id="ratesTable">
+        <!-- rows added by JS -->
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="admin-footer-text">
+  © 2026 SSR Associations. All Rights Reserved.
+</div>
+
+<script>
+  if (localStorage.getItem("adminLoggedIn") !== "true") {
+    window.location.href = "index.html";
+  }
+</script>
+<script src="admin.js"></script>
+
+</body>
+</html>

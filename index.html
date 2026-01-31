@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SSR ASSOCIATIONS | Vehicle Insurance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css?v=2">
+</head>
+
+<body>
+
+
+<!-- Admin Login Modal -->
+<div id="adminModal" class="admin-modal">
+  <div class="admin-box">
+    <span class="close-btn" onclick="closeAdminLogin()">×</span>
+    <h3>Admin Login</h3>
+
+    <input type="text" id="adminId" placeholder="Admin ID">
+    <input type="password" id="adminPassword" placeholder="Admin Password">
+
+    <button type="button" onclick="adminLogin()">Login</button>
+    <p id="adminMsg"></p>
+  </div>
+</div>
+
+<header class="header">
+  <div class="nav-bar container">
+
+    <div class="brand">
+      <img src="logo.png" class="brand-logo" alt="SSR Logo">
+      <span class="logo-text">SSR ASSOCIATIONS</span>
+    </div>
+
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#quote">Get Quote</a>
+      <a href="#claims">Claims</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="btn-primary" onclick="openAdminLogin()">Admin</button>
+
+  </div>
+</header> 
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-overlay">
+    <h1>Protect Your Vehicle.<br>Drive With Confidence.</h1>
+
+    <p>
+      Trusted vehicle insurance solutions for cars, bikes, and commercial vehicles.
+    </p>
+
+    <button onclick="scrollToQuote()" class="hero-btn">
+      Get Insurance Quote
+    </button>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services" class="section">
+  <h2 class="section-title">Our Insurance Services</h2>
+  <div class="cards">
+    <div class="card">🚗 Car Insurance</div>
+    <div class="card">🏍 Two-Wheeler Insurance</div>
+    <div class="card">🚚 Commercial Vehicle Insurance</div>
+    <div class="card">🔁 Policy Renewal</div>
+    <div class="card">🛠 Claims Assistance</div>
+  </div>
+</section>
+
+<!-- Quote Section -->
+<section id="quote" class="section light">
+
+  <div class="quote-container">
+
+    <!-- LEFT : QUOTE FORM -->
+    <div class="quote-left">
+      <h3>Get Insurance Quote</h3>
+
+      <form id="quoteForm">
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="tel" id="mobile" placeholder="Mobile Number" required>
+        <input type="text" id="vehicle" placeholder="Vehicle Number" required>
+
+        <select id="vehicleTypeForm" required>
+          <option value="">Select Vehicle Type</option>
+
+        <optgroup label="Two-Wheeler">
+          <option>Bike / Motorcycle</option>
+          <option>Scooter</option>
+        </optgroup>
+
+        <optgroup label="Private Vehicle">
+          <option>Private Car (Hatchback)</option>
+          <option>Private Car (Sedan)</option>
+          <option>Private Car (SUV / MUV)</option>
+        </optgroup>
+
+        <optgroup label="Commercial Passenger Vehicle">
+          <option>Auto Rickshaw (Passenger)</option>
+          <option>Taxi / Cab (Car)</option>
+          <option>Passenger Van (Commercial)</option>
+          <option>Mini Bus</option>
+          <option>Bus</option>
+        </optgroup>
+
+        <optgroup label="Commercial Goods Vehicle">
+          <option>Goods Auto (3-Wheeler)</option>
+          <option>Pickup / Mini Truck</option>
+          <option>Light Goods Vehicle (LGV)</option>
+          <option>Medium Goods Vehicle (MGV)</option>
+          <option>Heavy Goods Vehicle (HGV / Truck)</option>
+        </optgroup>
+
+        <optgroup label="Special Vehicles">
+          <option>Tractor</option>
+          <option>Tractor (with Trailer)</option>
+          <option>Trailer (separate)</option>
+          <option>Construction Equipment (JCB / Excavator / Loader)</option>
+          <option>Crane</option>
+          <option>Forklift</option>
+        </optgroup>
+
+        <optgroup label="Electric Vehicle (EV)">
+          <option>Electric Two-Wheeler</option>
+          <option>Electric Private Car</option>
+          <option>Electric Commercial Passenger</option>
+          <option>Electric Commercial Goods</option>
+        </optgroup>
+
+        <optgroup label="Others">
+          <option>Ambulance</option>
+          <option>Fire Engine</option>
+          <option>School Bus</option>
+          <option>Rental / Self-Drive Car</option>
+        </optgroup>
+      </select>
+
+        <button type="submit">Submit</button>
+      </form>
+
+      <p id="msg"></p>
+    </div>
+
+    <!-- RIGHT : COST CALCULATOR -->
+    <div class="quote-right">
+      <h3>Get Insurance Cost</h3>
+
+      <select id="vehicleTypeCost" onchange="calculateCost()" required>
+        <option value="">Select Vehicle Type</option>
+
+        <optgroup label="Two-Wheeler">
+          <option>Bike / Motorcycle</option>
+          <option>Scooter</option>
+        </optgroup>
+
+        <optgroup label="Private Vehicle">
+          <option>Private Car (Hatchback)</option>
+          <option>Private Car (Sedan)</option>
+          <option>Private Car (SUV / MUV)</option>
+        </optgroup>
+
+        <optgroup label="Commercial Passenger Vehicle">
+          <option>Auto Rickshaw (Passenger)</option>
+          <option>Taxi / Cab (Car)</option>
+          <option>Passenger Van (Commercial)</option>
+          <option>Mini Bus</option>
+          <option>Bus</option>
+        </optgroup>
+
+        <optgroup label="Commercial Goods Vehicle">
+          <option>Goods Auto (3-Wheeler)</option>
+          <option>Pickup / Mini Truck</option>
+          <option>Light Goods Vehicle (LGV)</option>
+          <option>Medium Goods Vehicle (MGV)</option>
+          <option>Heavy Goods Vehicle (HGV / Truck)</option>
+        </optgroup>
+
+        <optgroup label="Special Vehicles">
+          <option>Tractor</option>
+          <option>Tractor (with Trailer)</option>
+          <option>Trailer (separate)</option>
+          <option>Construction Equipment (JCB / Excavator / Loader)</option>
+          <option>Crane</option>
+          <option>Forklift</option>
+        </optgroup>
+
+        <optgroup label="Electric Vehicle (EV)">
+          <option>Electric Two-Wheeler</option>
+          <option>Electric Private Car</option>
+          <option>Electric Commercial Passenger</option>
+          <option>Electric Commercial Goods</option>
+        </optgroup>
+
+        <optgroup label="Others">
+          <option>Ambulance</option>
+          <option>Fire Engine</option>
+          <option>School Bus</option>
+          <option>Rental / Self-Drive Car</option>
+        </optgroup>
+      </select>
+
+      <div class="cost-box">
+        <div class="cost-label">Estimated Insurance Cost</div>
+        <div class="cost-value" id="cost">₹ 0</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Claims -->
+<section id="claims" class="section">
+  <h2 class="section-title">Claims Process</h2>
+  <ol class="claims">
+    <li>Notify SSR ASSOCIATIONS immediately</li>
+    <li>Submit required documents</li>
+    <li>Vehicle inspection</li>
+    <li>Claim approval & settlement</li>
+  </ol>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="section light">
+  <h2 class="section-title">Contact Us</h2>
+  <p><strong>Phone:</strong> +91 9393931247</p>
+  <p><strong>Email:</strong> ssrassociations@gmail.com</p>
+  <p><strong>Location:</strong> Andhra Pradesh, Srikakulam, India</p>
+</section>
+
+<!-- WhatsApp -->
+<a class="whatsapp" href="https://wa.me/919393931247" target="_blank">💬</a>
+
+<footer class="footer">
+  <p>© 2026 SSR ASSOCIATIONS. All Rights Reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
